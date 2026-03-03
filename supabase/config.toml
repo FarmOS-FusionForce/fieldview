@@ -1,0 +1,16 @@
+project_id = "vftewvsehneultfmncsq"
+
+[functions.robot-telemetry]
+verify_jwt = false
+
+[functions.weather-service]
+verify_jwt = false
+
+[functions.predictive-ai]
+verify_jwt = false
+
+[functions.crop-chat]
+verify_jwt = false
+
+[functions.rover-data]
+verify_jwt = false
