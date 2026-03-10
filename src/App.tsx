@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useFarmPreferences } from "@/hooks/useLocalStorage";
 import { useAuth } from "@/hooks/useAuth";
+import Dashboard from "./pages/Dashboard";
 import FarmerDashboard from "./pages/FarmerDashboard";
 import Onboarding from "./pages/Onboarding";
 import Predictions from "./pages/Predictions";
@@ -90,13 +91,14 @@ const App = () => (
         <Routes>
           <Route path="/auth" element={<AuthRoute />} />
           <Route path="/onboarding" element={<RequireAuth><OnboardingRoute /></RequireAuth>} />
-          <Route path="/" element={<ProtectedRoute><FarmerDashboard /></ProtectedRoute>} />
-          <Route path="/predictions" element={<ProtectedRoute><Predictions /></ProtectedRoute>} />
+          <Route path="/" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+          <Route path="/farmerdashboard" element={<ProtectedRoute><FarmerDashboard /></ProtectedRoute>} />
+          {/* <Route path="/predictions" element={<ProtectedRoute><Predictions /></ProtectedRoute>} />
           <Route path="/alerts" element={<ProtectedRoute><Alerts /></ProtectedRoute>} />
           <Route path="/settings" element={<ProtectedRoute><Settings /></ProtectedRoute>} />
           <Route path="/history" element={<ProtectedRoute><History /></ProtectedRoute>} />
           <Route path="/fields" element={<ProtectedRoute><Fields /></ProtectedRoute>} />
-          <Route path="/fields/:fieldId" element={<ProtectedRoute><FieldDetail /></ProtectedRoute>} />
+          <Route path="/fields/:fieldId" element={<ProtectedRoute><FieldDetail /></ProtectedRoute>} /> */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

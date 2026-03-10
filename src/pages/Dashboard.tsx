@@ -1,28 +1,18 @@
 import MobileLayout from "@/components/MobileLayout";
 import MobileHeader from "@/components/MobileHeader";
-import BottomNav from "@/components/BottomNav";
-import FarmerWeatherWidget from "@/components/FarmerWeatherWidget";
+
 import StatusCard from "@/components/StatusCard";
 import { useFarmPreferences } from "@/hooks/useLocalStorage";
 import { useLatestReadings, useRealtimeSensorReadings } from "@/hooks/useSensorReadings";
 
-import { useRobots } from "@/hooks/useRobots";
-import { useFields } from "@/hooks/useFields";
-import { useRoverData } from "@/hooks/useRoverData";
 import { Thermometer, Droplets, Sprout, Battery, Map, Brain, ChevronRight, Bot } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Link } from "react-router-dom";
 
-const FarmerDashboard = () => {
+const Dashboard = () => {
   const [preferences] = useFarmPreferences();
-  const { data: latestReading, isLoading: readingLoading } = useLatestReadings();
-  const { data: robots } = useRobots();
-  const { data: fields } = useFields();
   
   useRealtimeSensorReadings();
-
-  const primaryRobot = robots?.[0];
-  const { data: roverData } = useRoverData();
 
   return (
     <MobileLayout>
@@ -205,4 +195,4 @@ function getGreeting() {
   return "evening";
 }
 
-export default FarmerDashboard;
+export default Dashboard;
